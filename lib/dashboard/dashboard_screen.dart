@@ -23,6 +23,7 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   String? fullName;
+  String? email;
 
   @override
   void initState() {
@@ -34,6 +35,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       fullName = prefs.getString('signupName');
+      email = prefs.getString('signupEmail');
     });
   }
 
@@ -57,7 +59,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
         centerTitle: true,
         backgroundColor: Colors.lightBlueAccent,
         actions: [
-          // Person Icon Button
           IconButton(
             onPressed: () {
               Navigator.push(
@@ -79,6 +80,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     ),
           ),
+          if (email != null)
+            Text(
+              email!,
+              style: TextStyle(
+                fontSize: 10,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+
+          // Consumer<DashboardModel>(
+          //   builder: (context, dashboardModel, child) {
+          //     // fullName = dashboardModel.fullName;
+          //     email = dashboardModel.email;
+          //     return DataSignup(email: email);
+          //   },
+          // ),
           Consumer<ItemModel>(
             builder:
                 (context, fav, child) => Stack(
@@ -123,7 +141,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ],
                 ),
           ),
-          // Logout Button
           IconButton(
             onPressed: () async {
               final prefs = await SharedPreferences.getInstance();
