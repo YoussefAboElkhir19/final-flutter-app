@@ -68,7 +68,7 @@ Flutter Application 1 is a feature-rich mobile application built using the Flutt
 - Implement push notifications.
 
 ## Contributors
-- **Your Name**: Developer
+- **Your Name**: Nour484
 
 ## License
 This project is licensed under the MIT License.
