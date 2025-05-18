@@ -4,7 +4,6 @@
 Flutter Application is a feature-rich mobile application built using the Flutter framework. The app is designed to provide a seamless user experience with functionalities such as user authentication, item management, favorite tracking, and profile management. It leverages state management using the `Provider` package and stores user data locally using `SharedPreferences`.
 
 # DEMO Auth:[https://github.com/YoussefAboElkhir19/final-flutter-app/issues/1#issue-3071675171]
-# DEMO Features: [Feature Demo Video](#2)
 # DEMO Features:[https://github.com/YoussefAboElkhir19/final-flutter-app/issues/2#issue-3071680429]
 
 ## Features
