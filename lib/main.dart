@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Auth/Login/login_model.dart';
+import 'package:flutter_application_1/Auth/SignUp/signup_model.dart';
 import 'package:flutter_application_1/add_items/item_model.dart';
 import 'package:flutter_application_1/dashboard/nav_bar.dart';
 import 'package:flutter_application_1/favorite/favorite_model.dart';
 import 'package:flutter_application_1/profile/user_Model.dart';
-import 'package:flutter_application_1/Login/login.dart';
-import 'package:flutter_application_1/Login/signup_screen.dart';
+import 'package:flutter_application_1/Auth/Login/login_screen.dart';
+import 'package:flutter_application_1/Auth/SignUp/signup_screen.dart';
 import 'package:flutter_application_1/splash/splash_model.dart';
 import 'package:flutter_application_1/splash/splash_screen.dart';
 // provider
@@ -22,6 +24,10 @@ void main() {
         ChangeNotifierProvider(create: (context) => FavoriteModel()),
         //Provider Of The SplashModel
         ChangeNotifierProvider(create: (context) => SplashModel()),
+        //Provider Of The LoginModel
+        ChangeNotifierProvider(create: (context) => LoginModel()),
+        //Provider Of The SignupModel
+        ChangeNotifierProvider(create: (context) => SignupModel()),
       ],
       child: const MyApp(),
     ),

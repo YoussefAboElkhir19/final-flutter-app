@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const SizedBox(height: 20),
 
-            const CircularProgressIndicator(),
+            // const CircularProgressIndicator(),
             const SizedBox(height: 20),
             // Button To Navigate to Login
             ButtonWidget(text: 'Go to Login', uri: '/login'),

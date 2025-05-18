@@ -38,24 +38,28 @@ class _ProfilePageState extends State<ProfilePage> {
                 return Stack(
                   alignment: Alignment.bottomRight,
                   children: [
-                    CircleAvatar(
-                      radius: 110,
-                      backgroundColor:
-                          Colors.grey[200], // Optional: Add a background color
-                      child:
-                          userModel.user?.image == null
-                              ? Icon(Icons.person, size: 200)
-                              : ClipOval(
-                                child: Image.file(
-                                  // Style for image Selected
-                                  width: 240, // Double the radius
-                                  height: 240, // Double the radius
-                                  fit:
-                                      BoxFit
-                                          .cover, // Ensures the image covers the circle
-                                  userModel.user!.image!,
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: CircleAvatar(
+                        radius: 110,
+                        backgroundColor:
+                            Colors
+                                .grey[200], // Optional: Add a background color
+                        child:
+                            userModel.user?.image == null
+                                ? Icon(Icons.person, size: 200)
+                                : ClipOval(
+                                  child: Image.file(
+                                    // Style for image Selected
+                                    width: 240, // Double the radius
+                                    height: 240, // Double the radius
+                                    fit:
+                                        BoxFit
+                                            .cover, // Ensures the image covers the circle
+                                    userModel.user!.image!,
+                                  ),
                                 ),
-                              ),
+                      ),
                     ),
                     CircleAvatar(
                       child: IconButton(

@@ -41,45 +41,87 @@ class _QuoteScreenState extends State<QuoteScreen> {
         ),
         child: FutureBuilder(
           future: future,
+          // builder tell flutter what render to display depend on state
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return ListView.builder(
-                itemCount: snapshot.data?.length,
-                itemBuilder:
-                    (context, index) => Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Text("Author: "),
-                          Text(
-                            snapshot.data![index].author,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+              return Center(
+                child: ListView.builder(
+                  itemCount: snapshot.data?.length,
+                  itemBuilder:
+                      (context, index) => Padding(
+                        padding: const EdgeInsets.all(18.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const SizedBox(height: 100),
+                            Row(
+                              children: [
+                                Text(
+                                  "Author: ",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.lightBlue,
+                                  ),
+                                ),
+                                Text(
+                                  snapshot.data![index].author,
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          Text("Category: "),
-                          Text(
-                            snapshot.data![index].category,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                            const SizedBox(height: 20),
+                            Row(
+                              children: [
+                                Text(
+                                  "Category: ",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.lightBlue,
+                                  ),
+                                ),
+                                Text(
+                                  snapshot.data![index].category,
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          Text("Quote: "),
-                          Text(
-                            snapshot.data![index].quote,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                            const SizedBox(height: 20),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Quote: ",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.lightBlue,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    snapshot.data![index].quote,
+                                    style: TextStyle(
+                                      fontSize: 18,
+
+                                      color: Colors.white,
+                                    ),
+                                    softWrap: true,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
+                ),
               );
             }
             // check If Found Error

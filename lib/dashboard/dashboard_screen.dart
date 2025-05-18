@@ -8,7 +8,7 @@ import 'package:flutter_application_1/favorite/favorite_model.dart';
 import 'package:flutter_application_1/profile/profile_page/profile_page.dart';
 import 'package:flutter_application_1/profile/user_Model.dart';
 import 'package:flutter_application_1/favorite/favorite_screen.dart';
-import 'package:flutter_application_1/Login/login.dart';
+import 'package:flutter_application_1/Auth/Login/login_screen.dart';
 // provider
 import 'package:provider/provider.dart';
 //preferences
@@ -48,6 +48,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 75,
         title: Column(
           children: [
             Text(
@@ -59,44 +60,40 @@ class _DashboardScreenState extends State<DashboardScreen> {
         centerTitle: true,
         backgroundColor: Colors.lightBlueAccent,
         actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProfilePage()),
-              );
-            },
-            icon:
-                profileImage == null
-                    ? Icon(Icons.person)
-                    : CircleAvatar(
-                      child: ClipOval(
-                        child: Image.file(
-                          profileImage,
-                          width: 50,
-                          height: 50,
-                          fit: BoxFit.cover,
+          Column(
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                  );
+                },
+                icon:
+                    profileImage == null
+                        ? Icon(Icons.person)
+                        : CircleAvatar(
+                          child: ClipOval(
+                            child: Image.file(
+                              profileImage,
+                              width: 50,
+                              height: 50,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-          ),
-          if (email != null)
-            Text(
-              email!,
-              style: TextStyle(
-                fontSize: 10,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
               ),
-            ),
 
-          // Consumer<DashboardModel>(
-          //   builder: (context, dashboardModel, child) {
-          //     // fullName = dashboardModel.fullName;
-          //     email = dashboardModel.email;
-          //     return DataSignup(email: email);
-          //   },
-          // ),
+              Text(
+                email!,
+                style: TextStyle(
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
           Consumer<ItemModel>(
             builder:
                 (context, fav, child) => Stack(
@@ -145,6 +142,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             onPressed: () async {
               final prefs = await SharedPreferences.getInstance();
               await prefs.remove('isLoggedIn');
+              await prefs.remove('signupEmail');
+              await prefs.remove('signupPassword');
               Navigator.pushReplacementNamed(context, '/login');
             },
             icon: Icon(Icons.logout),
@@ -156,13 +155,27 @@ class _DashboardScreenState extends State<DashboardScreen> {
           if (fullName != null)
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text(
-                "Welcome ${fullName!}",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "HELLO, ",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+
+                  Text(
+                    fullName!,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
               ),
             ),
           Expanded(

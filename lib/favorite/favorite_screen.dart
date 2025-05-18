@@ -8,7 +8,15 @@ class FavoriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Favorite")),
+      appBar: AppBar(
+        title: Text(
+          "Favorite",
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        ),
+
+        centerTitle: true,
+        backgroundColor: Colors.lightBlueAccent,
+      ),
       body: Consumer<FavoriteModel>(
         builder: (context, fav, child) {
           if (fav.fav.isEmpty) {
