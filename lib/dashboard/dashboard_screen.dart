@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/add_items/item.dart';
 import 'package:flutter_application_1/add_items/item_model.dart';
+import 'package:flutter_application_1/dashboard/logout.dart';
 import 'package:flutter_application_1/details/details_pages/details_page.dart';
 import 'package:flutter_application_1/add_items/add_item_Screen.dart';
 import 'package:flutter_application_1/details/details_widget/favorite_widget.dart';
@@ -28,10 +29,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   void initState() {
     super.initState();
-    _loadFullName();
+    _loadDataUser();
   }
 
-  Future<void> _loadFullName() async {
+  Future<void> _loadDataUser() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       fullName = prefs.getString('signupName');
@@ -138,16 +139,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ],
                 ),
           ),
-          IconButton(
-            onPressed: () async {
-              final prefs = await SharedPreferences.getInstance();
-              await prefs.remove('isLoggedIn');
-              await prefs.remove('signupEmail');
-              await prefs.remove('signupPassword');
-              Navigator.pushReplacementNamed(context, '/login');
-            },
-            icon: Icon(Icons.logout),
-          ),
+          // Logout Widget
+          Logout(),
         ],
       ),
       body: Column(

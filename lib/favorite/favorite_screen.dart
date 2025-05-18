@@ -60,7 +60,7 @@ class FavoriteScreen extends StatelessWidget {
             },
           );
         },
-        child: const Text("jjjjj"), // This is the optional child parameter
+        // This is the optional child parameter
       ),
     );
   }
