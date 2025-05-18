@@ -1,7 +1,10 @@
-# Flutter Application 1
+# Flutter Application 
 
 ## Project Description
-Flutter Application 1 is a feature-rich mobile application built using the Flutter framework. The app is designed to provide a seamless user experience with functionalities such as user authentication, item management, favorite tracking, and profile management. It leverages state management using the `Provider` package and stores user data locally using `SharedPreferences`.
+Flutter Application is a feature-rich mobile application built using the Flutter framework. The app is designed to provide a seamless user experience with functionalities such as user authentication, item management, favorite tracking, and profile management. It leverages state management using the `Provider` package and stores user data locally using `SharedPreferences`.
+
+### DEMO Auth:[https://github.com/YoussefAboElkhir19/final-flutter-app/issues/1#issue-3071675171]
+### DEMO Features:[https://github.com/YoussefAboElkhir19/final-flutter-app/issues/2#issue-3071680429]
 
 ## Features
 
@@ -68,7 +71,7 @@ Flutter Application 1 is a feature-rich mobile application built using the Flutt
 - Implement push notifications.
 
 ## Contributors
-- **Your Name**: Developer
+- **Your Name**: Nour484
 
 ## License
 This project is licensed under the MIT License.
