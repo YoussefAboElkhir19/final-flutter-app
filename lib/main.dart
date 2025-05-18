@@ -7,8 +7,10 @@ import 'package:flutter_application_1/favorite/favorite_model.dart';
 import 'package:flutter_application_1/profile/user_Model.dart';
 import 'package:flutter_application_1/Auth/Login/login_screen.dart';
 import 'package:flutter_application_1/Auth/SignUp/signup_screen.dart';
+import 'package:flutter_application_1/splash/splash_Animated.dart';
 import 'package:flutter_application_1/splash/splash_model.dart';
 import 'package:flutter_application_1/splash/splash_screen.dart';
+
 // provider
 import 'package:provider/provider.dart';
 
@@ -46,7 +48,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: SplashAnimated(),
       routes: {
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignUpScreen(),

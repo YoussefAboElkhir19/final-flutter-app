@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (!_formKey.currentState!.validate()) return;
 
                     setState(() => _isLoading = true);
-
+                    // Get the LoginModel from the Provider
                     final loginModel = Provider.of<LoginModel>(
                       context,
                       listen: false,
